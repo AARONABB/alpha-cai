@@ -92,16 +92,43 @@
         <div class="chat-header">
             Cai Chat Bot
         </div>
-        <div class="chat-body">
+        <div class="chat-body" id="chat-body">
             <div class="message bot-message">
                 <p>Hello! How can I assist you today?</p>
             </div>
         </div>
         <div class="input-container">
-            <input type="text" class="input-field" placeholder="Type a message...">
-            <button class="send-button">Send</button>
+            <input type="text" class="input-field" id="input-field" placeholder="Type a message...">
+            <button class="send-button" id="send-button">Send</button>
         </div>
     </div>
+
+    <script>
+        const inputField = document.getElementById('input-field');
+        const sendButton = document.getElementById('send-button');
+        const chatBody = document.getElementById('chat-body');
+
+        function sendMessage() {
+            const messageText = inputField.value.trim();
+            if (messageText === '') return;
+
+            const message = document.createElement('div');
+            message.className = 'message user-message';
+            message.innerHTML = `<p>${messageText}</p>`;
+            chatBody.appendChild(message);
+
+            inputField.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+
+        inputField.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
 </body>
 
 </html>
