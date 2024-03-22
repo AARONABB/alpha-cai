@@ -23,7 +23,7 @@ function getResponse(input) {
         case 'date':
             return `Today is ${new Date().toDateString()}.`;
         case 'help':
-            return 'Here are the available commands: \n 1. Hello \n 2. Time \n 3. Date \n 4. Help';
+            return 'Here are the available commands: \n 1. Hello \n 2. Time \n 3. Date \n 4. Help \n 5. Bye \n 6. Weather \n 7. News \n 8. Joke \n 9. Open [website] \n 10. Search [topic] on Google';
         case 'bye':
             return 'Goodbye! Have a great day!';
         case 'weather':
@@ -39,8 +39,6 @@ function getResponse(input) {
         default:
             return 'I do not understand that command. Type "help" to see the available commands.';
     }
-}
-
 }
 
 function appendMessage(message, sender) {
