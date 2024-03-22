@@ -12,7 +12,10 @@ chatForm.addEventListener('submit', function(event) {
 });
 
 function getResponse(input) {
-    switch (input) {
+    const command = input.split(' ')[0];
+    const argument = input.split(' ').slice(1).join(' ');
+
+    switch (command) {
         case 'hello':
             return 'Hello! How can I help you today?';
         case 'time':
@@ -29,9 +32,15 @@ function getResponse(input) {
             return 'I am not able to provide news updates at the moment.';
         case 'joke':
             return 'Why don’t scientists trust atoms? Because they make up everything!';
+        case 'open':
+            return `Opening ${argument}... (This is a simulated response. Replace it with actual code to open the website.)`;
+        case 'search':
+            return `Searching for ${argument} on Google... (This is a simulated response. Replace it with actual code to perform the search.)`;
         default:
             return 'I do not understand that command. Type "help" to see the available commands.';
     }
+}
+
 }
 
 function appendMessage(message, sender) {
